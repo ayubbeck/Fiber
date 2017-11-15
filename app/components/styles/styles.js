@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     flex: 1
   },
   statusBar: {
-    //height: 22,
     height: 0,
     backgroundColor: '#FF9933'
   },
@@ -51,10 +50,21 @@ const styles = StyleSheet.create({
     shadowColor: 'grey',
     marginLeft: 10
   },
-  imageStyle : {
+  imageStyle: {
     alignSelf: 'center',
     width: 160,
     height: 200
+  },
+  detailBody: {
+    alignSelf: 'center',
+    margin: 10
+  },
+  detailMargin: {
+    marginBottom: 10
+  },
+  detailHeader: {
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 });
 

@@ -6,17 +6,21 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 import FiberApp from '../components/FiberApp'
+import FiberDetail from '../components/FiberDetail'
+import Styles from '../components/styles/styles'
 
 export class MainScreen extends Component {
-  static navigationOptions = {
-    headerTitle: 'Foods Rich in Fiber',
-    headerStyle: {
-      backgroundColor: '#FF9933'
+  static navigationOptions = () => {
+    return {
+      headerTitle: 'Foods Rich in Fiber',
+      headerStyle: {
+        backgroundColor: '#FF9933'
+      }
     }
   };
   render() {
     return (
-      <View style={{flex:1}}>
+      <View style={ Styles.container }>
         <FiberApp navigation={ this.props.navigation }/>
       </View>
     );
@@ -24,18 +28,19 @@ export class MainScreen extends Component {
 }
 
 export class DetailScreen extends Component {
-  static navigationOptions = {
-    headerTitle: 'Fun Facts',
-    headerStyle: {
-      backgroundColor: '#FF9933'
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTitle: navigation.state.params.fiber.name,
+      headerStyle: {
+        backgroundColor: '#FF9933'
+      }
     }
   };
+
   render() {
     const { params } = this.props.navigation.state;
     return (
-      <View>
-        <Text>{params.fiber.name}</Text>
-      </View>
+      <FiberDetail navigation={ this.props.navigation } fiber={ params.fiber } />
     );
   }
 }

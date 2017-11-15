@@ -8,9 +8,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { NavigationActions } from 'react-navigation';
+import config from '../configs/fiber'
 import fiberActions from '../redux/actions/fiber'
 import Styles from './styles/styles'
-import config from '../configs/fiber'
 
 class FiberItem extends Component {
   render() {
