@@ -38,6 +38,7 @@ export class DetailScreen extends Component {
   };
 
   render() {
+    // pass the Redux state to FiberDetail screen
     const { params } = this.props.navigation.state;
     return (
       <FiberDetail navigation={ this.props.navigation } fiber={ params.fiber } />

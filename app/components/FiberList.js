@@ -12,11 +12,13 @@ import Styles from './styles/styles'
 import FiberItem from './FiberItem'
 
 class FiberList extends Component {
+  // this is where we trigger the API call by default
   componentWillMount() {
     this.props.actions.fetchFibers()
   }
 
   render() {
+    // Nothing special here, just creating views in two columns
     var views = [];
     var i = 0;
 

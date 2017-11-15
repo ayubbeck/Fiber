@@ -5,6 +5,7 @@
 'use strict';
 import types from '../types/fiber'
 
+// fiber app related reducers
 let fiberReducer = (fibers=[], action) => {
   var newFibers = [];
 

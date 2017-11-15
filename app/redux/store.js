@@ -8,12 +8,15 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import reducers from './reducers/index'
 
+// initial state of the app
 let initialState = { fibers: [] };
 
+//create the store
 let finalCreateStore = compose(
   applyMiddleware(thunk, createLogger())
 )(createStore);
 
+// bind the reducers and initial state
 let configureStore = (initialState = initialState) => {
   return finalCreateStore(reducers, initialState)
 };

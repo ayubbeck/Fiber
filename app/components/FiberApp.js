@@ -23,11 +23,11 @@ class FiberApp extends Component {
     )
   }
 }
-
+// map state to prop
 const mapStateToProps = (state) => {
   return state
 };
-
+// bind actions to state
 const mapDispatchToProps = (dispatch) => {
   return {
     actions: bindActionCreators({ ...fiberActions }, dispatch)

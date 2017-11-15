@@ -10,8 +10,10 @@ import Styles from './styles/styles'
 
 class FiberDetail extends Component {
   render() {
+    // picture url
     let pic = { uri: config.fibers_base_api + this.props.fiber.image };
     return (
+      // show the details in nice format
       <View style={ Styles.container }>
         <View>
           <Image source={ pic } resizeMode="contain" style={ Styles.imageStyle }/>

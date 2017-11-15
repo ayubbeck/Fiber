@@ -14,8 +14,10 @@ import Styles from './styles/styles'
 
 class FiberItem extends Component {
   render() {
+    // create pic url
     let pic = {uri: config.fibers_base_api + this.props.fiber.image};
     return (
+      // show picture image and make it press-able
       <TouchableOpacity onPress={() => this.props.nav.navigate('Detail', {fiber: this.props.fiber})}>
         <View style={this.props.left ? Styles.itemLeftViewStyle: Styles.itemRightViewStyle}>
           <Image source={pic} resizeMode="contain" style={Styles.imageStyle}/>
