@@ -11,7 +11,7 @@ import Navigation from './redux/reducers/navigation'
 class Fiber extends Component {
   render() {
     return(
-      // Pass on the store to provider and navigation.
+      // Pass on the store to the components
       <Provider store={ store }>
         <Navigation />
       </Provider>

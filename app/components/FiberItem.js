@@ -4,21 +4,29 @@
 
 'use strict';
 import React, { Component } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { NavigationActions } from 'react-navigation';
+import { View, Image, TouchableOpacity } from 'react-native'
 import config from '../configs/fiber'
-import fiberActions from '../redux/actions/fiber'
 import Styles from './styles/styles'
 
 class FiberItem extends Component {
+  handleOnPress() {
+    this.props.navigation.navigate(
+      'Detail',
+      {
+        fiberName: this.props.fiber.name,
+        fiberIndex: this.props.fiberIndex,
+        actions: this.props.actions,
+        navigation: this.props.navigation
+      }
+    )
+  }
+
   render() {
     // create pic url
-    let pic = {uri: config.fibers_base_api + this.props.fiber.image};
+    let pic = { uri: config.fibers_base_api + this.props.fiber.image };
+    // show picture image and make it press-able
     return (
-      // show picture image and make it press-able
-      <TouchableOpacity onPress={() => this.props.nav.navigate('Detail', {fiber: this.props.fiber})}>
+      <TouchableOpacity onPress={this.handleOnPress.bind(this)}>
         <View style={this.props.left ? Styles.itemLeftViewStyle: Styles.itemRightViewStyle}>
           <Image source={pic} resizeMode="contain" style={Styles.imageStyle}/>
         </View>

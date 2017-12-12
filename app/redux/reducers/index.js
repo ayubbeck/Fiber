@@ -4,19 +4,19 @@
 
 'use strict';
 import { combineReducers } from 'redux'
+import { NavigationActions } from 'react-navigation'
 import { Navigator } from './navigation'
 import fibers from './fiber'
 
 // navigator reducer
-let nav = (state, action) => {
+function navigation (state, action) {
   let newState = Navigator.router.getStateForAction(action, state);
   return newState || state;
-};
-
+}
 // combine navigator and app reducers
 let reducers = combineReducers({
   fibers: fibers,
-  nav: nav
+  navigation: navigation
 });
 
 export default reducers

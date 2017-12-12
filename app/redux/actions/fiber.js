@@ -16,6 +16,20 @@ let fiberActions = {
       fibers: fibers
     }
   },
+  // make if editable
+  makeItEditable: function(fiberId) {
+    return {
+      type: types.MAKE_IT_EDITABLE,
+      fiberId: fiberId
+    }
+  },
+  updateFiberDesc: function(fiberId, fiberDesc) {
+    return {
+      type: types.UPDATE_FIBER_DESC,
+      fiberId: fiberId,
+      fiberDesc: fiberDesc
+    }
+  },
   // fetch fibers via AJAX call
   fetchFibers: function() {
     return (dispatch) => {
@@ -28,7 +42,6 @@ let fiberActions = {
         })
     }
   }
-
 };
 
 export default fiberActions

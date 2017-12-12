@@ -6,22 +6,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNavigationHelpers, StackNavigator } from 'react-navigation'
-import { MainScreen, DetailScreen } from '../../screens/index'
+import Detail from '../../components/screens/Detail'
+import Main from '../../components/screens/Main'
 
 // create stack navigator
 export const Navigator = StackNavigator({
-  Main: { screen: MainScreen },
-  Detail: { screen: DetailScreen }
+  Main: { screen: Main },
+  Detail: { screen: Detail }
 });
-
 // bind actions and the state
-const Navigation = ({ dispatch, nav }) => (
-  <Navigator navigation={ addNavigationHelpers({ dispatch, state: nav }) } />
-);
-
+class Navigation extends Component {
+  render() {
+    return (
+      <Navigator navigation={ addNavigationHelpers({ dispatch: this.props.dispatch, state: this.props.navigation }) }/>
+    );
+  }
+}
 // map state to props
 const mapStateToProps = (state) => ({
-  nav: state.nav
+  navigation: state.navigation
 });
 
 export default connect(mapStateToProps)(Navigation)

@@ -5,37 +5,30 @@
 'use strict';
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import fiberActions from '../redux/actions/fiber'
 import Styles from './styles/styles'
 import FiberItem from './FiberItem'
 
 class FiberList extends Component {
-  // this is where we trigger the API call by default
-  componentWillMount() {
-    this.props.actions.fetchFibers()
-  }
-
   render() {
-    // Nothing special here, just creating views in two columns
     var views = [];
     var i = 0;
-
+    // Nothing special here, just creating views in two columns
     if (this.props.fibers.length % 2 == 0) {
       for (i=0; i<this.props.fibers.length; i=i+2) {
         views.push(
           <View key={this.props.fibers[i].id} style={Styles.row}>
             <FiberItem key={this.props.fibers[i].id}
                        fiber={this.props.fibers[i]}
+                       fiberIndex={i}
                        left={true}
                        actions={this.props.actions}
-                       nav={this.props.nav}/>
+                       navigation={this.props.navigation}/>
             <FiberItem key={this.props.fibers[i+1].id}
                        fiber={this.props.fibers[i+1]}
+                       fiberIndex={i+1}
                        left={false}
                        actions={this.props.actions}
-                       nav={this.props.nav}/>
+                       navigation={this.props.navigation}/>
           </View>
         )
       }
@@ -46,14 +39,16 @@ class FiberList extends Component {
           <View key={this.props.fibers[i].id} style={Styles.row}>
             <FiberItem key={this.props.fibers[i].id}
                        fiber={this.props.fibers[i]}
+                       fiberIndex={i}
                        left={true}
                        actions={this.props.actions}
-                       nav={this.props.nav}/>
+                       navigation={this.props.navigation}/>
             <FiberItem key={this.props.fibers[i + 1].id}
                        fiber={this.props.fibers[i + 1]}
+                       fiberIndex={i+1}
                        left={false}
                        actions={this.props.actions}
-                       nav={this.props.nav}/>
+                       navigation={this.props.navigation}/>
           </View>
         )
       }
@@ -61,9 +56,10 @@ class FiberList extends Component {
         <View key={this.props.fibers[i].id} style={Styles.row}>
           <FiberItem key={this.props.fibers[i].id}
                      fiber={this.props.fibers[i]}
+                     fiberIndex={i}
                      left={true}
                      actions={this.props.actions}
-                     nav={this.props.nav}/>
+                     navigation={this.props.navigation}/>
         </View>
       )
     }

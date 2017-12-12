@@ -11,7 +11,10 @@ const styles = StyleSheet.create({
   },
   statusBar: {
     height: 0,
-    backgroundColor: '#FF9933'
+    backgroundColor: '#DDA0DD'
+  },
+  headerStyle: {
+    backgroundColor: '#DDA0DD'
   },
   whiteBackColor: {
     backgroundColor: 'white'
